@@ -3,15 +3,21 @@ namespace Service_station_software.Controll
 {
     public class ClientController
     {
-        public void AddClient(Client client)
+        private readonly List<Client> clients;
+
+        public ClientController()
         {
-            // Логика добавления клиента в базу данных
+            clients = new List<Client>();
         }
 
-        public List<Client> GetClients()
+        public void AddClient(Client client)
         {
-            // Логика получения списка клиентов из базы данных
-            return new List<Client>();
+            clients.Add(client);
+        }
+
+        public List<Client> GetAllClients()
+        {
+            return clients;
         }
     }
 }

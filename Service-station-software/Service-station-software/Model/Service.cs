@@ -1,6 +1,5 @@
 ﻿namespace Service_station_software
 {
-    // Модель
     public class Service
     {
         public string Name { get; set; }

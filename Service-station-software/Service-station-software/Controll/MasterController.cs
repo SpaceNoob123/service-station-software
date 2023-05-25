@@ -3,15 +3,21 @@ namespace Service_station_software.Controll
 {
     public class MasterController
     {
-        public void AddMaster(Master master)
+        private readonly List<Master> masters;
+
+        public MasterController()
         {
-            // Логика добавления мастера в базу данных
+            masters = new List<Master>();
         }
 
-        public List<Master> GetMasters()
+        public void AddMaster(Master master)
         {
-            // Логика получения списка мастеров из базы данных
-            return new List<Master>();
+            masters.Add(master);
+        }
+
+        public List<Master> GetAllMasters()
+        {
+            return masters;
         }
     }
 }
