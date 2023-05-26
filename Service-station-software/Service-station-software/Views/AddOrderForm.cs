@@ -55,8 +55,7 @@ namespace Service_station_software.Views
 
         private void LoadClients()
         {
-            // Логика загрузки клиентов из базы данных
-            var clients = new List<Client>(); // Заглушка, замените на реальную логику
+            var clients = clientController.GetAllClients();
 
             clientComboBox.DataSource = clients;
             clientComboBox.DisplayMember = "FullName";
@@ -64,8 +63,7 @@ namespace Service_station_software.Views
 
         private void LoadMasters()
         {
-            // Логика загрузки мастеров из базы данных
-            var masters = new List<Master>(); // Заглушка, замените на реальную логику
+            var masters = masterController.GetAllMasters();
 
             masterComboBox.DataSource = masters;
             masterComboBox.DisplayMember = "FullName";

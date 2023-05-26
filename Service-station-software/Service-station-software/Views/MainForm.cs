@@ -18,7 +18,6 @@ namespace Service_station_software.Views
         private ListBox masterListBox;
         private ListBox orderListBox;
 
-
         private readonly ClientController clientController;
         private readonly MasterController masterController;
         private readonly OrderController orderController;
@@ -40,61 +39,43 @@ namespace Service_station_software.Views
 
         private void LoadClients()
         {
-            // Логика загрузки клиентов из базы данных
             var clients = clientController.GetAllClients();
-
-            // Очищаем список клиентов и добавляем загруженные клиенты
             clientListBox.Items.Clear();
             clientListBox.Items.AddRange(clients.ToArray());
         }
 
         private void LoadMasters()
         {
-            // Логика загрузки мастеров из базы данных
             var masters = masterController.GetAllMasters();
-
-            // Очищаем список мастеров и добавляем загруженных мастеров
             masterListBox.Items.Clear();
             masterListBox.Items.AddRange(masters.ToArray());
         }
 
         private void LoadOrders()
         {
-            // Логика загрузки заказов из базы данных
             var orders = orderController.GetAllOrders();
-
-            // Очищаем список заказов и добавляем загруженные заказы
             orderListBox.Items.Clear();
             orderListBox.Items.AddRange(orders.ToArray());
         }
 
         private void addClientButton_Click(object sender, EventArgs e)
         {
-            // Открыть форму для добавления клиента
             var addClientForm = new AddClientForm(clientController);
             addClientForm.ShowDialog();
-
-            // После закрытия формы обновляем список клиентов
             LoadClients();
         }
 
         private void addMasterButton_Click(object sender, EventArgs e)
         {
-            // Открыть форму для добавления мастера
             var addMasterForm = new AddMasterForm(masterController);
             addMasterForm.ShowDialog();
-
-            // После закрытия формы обновляем список мастеров
             LoadMasters();
         }
 
         private void addOrderButton_Click(object sender, EventArgs e)
         {
-            // Открыть форму для добавления заказа
             var addOrderForm = new AddOrderForm(clientController, masterController, orderController);
             addOrderForm.ShowDialog();
-
-            // После закрытия формы обновляем список заказов
             LoadOrders();
         }
 
@@ -110,7 +91,7 @@ namespace Service_station_software.Views
             // 
             // AddClientForm
             // 
-            this.AddClientForm.Location = new System.Drawing.Point(47, 28);
+            this.AddClientForm.Location = new System.Drawing.Point(96, 40);
             this.AddClientForm.Name = "AddClientForm";
             this.AddClientForm.Size = new System.Drawing.Size(75, 23);
             this.AddClientForm.TabIndex = 0;
@@ -120,7 +101,7 @@ namespace Service_station_software.Views
             // 
             // AddMasterForm
             // 
-            this.AddMasterForm.Location = new System.Drawing.Point(252, 28);
+            this.AddMasterForm.Location = new System.Drawing.Point(383, 28);
             this.AddMasterForm.Name = "AddMasterForm";
             this.AddMasterForm.Size = new System.Drawing.Size(75, 23);
             this.AddMasterForm.TabIndex = 1;
@@ -130,7 +111,7 @@ namespace Service_station_software.Views
             // 
             // AddOrderForm
             // 
-            this.AddOrderForm.Location = new System.Drawing.Point(470, 28);
+            this.AddOrderForm.Location = new System.Drawing.Point(659, 28);
             this.AddOrderForm.Name = "AddOrderForm";
             this.AddOrderForm.Size = new System.Drawing.Size(75, 23);
             this.AddOrderForm.TabIndex = 2;
@@ -143,28 +124,28 @@ namespace Service_station_software.Views
             this.clientListBox.FormattingEnabled = true;
             this.clientListBox.Location = new System.Drawing.Point(12, 95);
             this.clientListBox.Name = "clientListBox";
-            this.clientListBox.Size = new System.Drawing.Size(191, 134);
+            this.clientListBox.Size = new System.Drawing.Size(306, 303);
             this.clientListBox.TabIndex = 3;
             // 
             // masterListBox
             // 
             this.masterListBox.FormattingEnabled = true;
-            this.masterListBox.Location = new System.Drawing.Point(209, 95);
+            this.masterListBox.Location = new System.Drawing.Point(324, 95);
             this.masterListBox.Name = "masterListBox";
-            this.masterListBox.Size = new System.Drawing.Size(186, 134);
+            this.masterListBox.Size = new System.Drawing.Size(263, 290);
             this.masterListBox.TabIndex = 4;
             // 
             // orderListBox
             // 
             this.orderListBox.FormattingEnabled = true;
-            this.orderListBox.Location = new System.Drawing.Point(401, 95);
+            this.orderListBox.Location = new System.Drawing.Point(593, 95);
             this.orderListBox.Name = "orderListBox";
-            this.orderListBox.Size = new System.Drawing.Size(234, 134);
+            this.orderListBox.Size = new System.Drawing.Size(292, 329);
             this.orderListBox.TabIndex = 5;
             // 
             // MainForm
             // 
-            this.ClientSize = new System.Drawing.Size(658, 459);
+            this.ClientSize = new System.Drawing.Size(952, 555);
             this.Controls.Add(this.orderListBox);
             this.Controls.Add(this.masterListBox);
             this.Controls.Add(this.clientListBox);

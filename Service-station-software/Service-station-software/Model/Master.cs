@@ -3,7 +3,12 @@ namespace Service_station_software
 {
     public class Master : Person
     {
+        public int Id { get; set; }
         public string Level { get; set; }
-        public List<string> Specialties { get; set; }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {LastName}, {PhoneNumber},{Level}";
+        }
     }
 }

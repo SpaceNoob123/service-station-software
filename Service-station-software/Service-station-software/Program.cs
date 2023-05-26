@@ -16,15 +16,17 @@ namespace Service_station_software
         [STAThread]
         static void Main()
         {
-            string connectionString = "your_connection_string_here";
-            var databaseHelper = new DatabaseHelper(connectionString);
+            string connectionString = "Server=localhost\\SQLEXPRESS;" +
+                    "Database=CarServiceDB;" +
+                    "Trusted_Connection=True;" +
+                    "TrustServerCertificate=True;";
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             // Создание экземпляров контроллеров
-            ClientController clientController = new ClientController();
-            MasterController masterController = new MasterController();
-            OrderController orderController = new OrderController();
+            ClientController clientController = new ClientController(connectionString);
+            MasterController masterController = new MasterController(connectionString);
+            OrderController orderController = new OrderController(connectionString);
 
             // Создание экземпляра формы MainForm и запуск приложения
             MainForm mainForm = new MainForm(clientController, masterController, orderController);

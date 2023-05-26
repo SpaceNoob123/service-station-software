@@ -18,9 +18,7 @@ namespace Service_station_software.Views
         private TextBox phoneNumberTextBox;
         private Label label4;
         private TextBox levelTextBox;
-        private Label label5;
         private Button button1;
-        private CheckedListBox specialtiesListBox;
         private readonly MasterController masterController;
 
         public AddMasterForm(MasterController controller)
@@ -31,11 +29,6 @@ namespace Service_station_software.Views
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var specialties = new List<string>();
-            foreach (var specialty in specialtiesListBox.CheckedItems)
-            {
-                specialties.Add(specialty.ToString());
-            }
 
             var master = new Master
             {
@@ -43,7 +36,6 @@ namespace Service_station_software.Views
                 LastName = lastNameTextBox.Text,
                 PhoneNumber = phoneNumberTextBox.Text,
                 Level = levelTextBox.Text,
-                Specialties = specialties
             };
 
             masterController.AddMaster(master);
@@ -61,9 +53,7 @@ namespace Service_station_software.Views
             this.phoneNumberTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.levelTextBox = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.specialtiesListBox = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -130,38 +120,20 @@ namespace Service_station_software.Views
             this.levelTextBox.Size = new System.Drawing.Size(100, 20);
             this.levelTextBox.TabIndex = 7;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(42, 176);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(85, 13);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Специальности";
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(210, 241);
+            this.button1.Location = new System.Drawing.Point(35, 195);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // specialtiesListBox
-            // 
-            this.specialtiesListBox.FormattingEnabled = true;
-            this.specialtiesListBox.Location = new System.Drawing.Point(35, 192);
-            this.specialtiesListBox.Name = "specialtiesListBox";
-            this.specialtiesListBox.Size = new System.Drawing.Size(120, 94);
-            this.specialtiesListBox.TabIndex = 11;
+            this.button1.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // AddMasterForm
             // 
             this.ClientSize = new System.Drawing.Size(369, 345);
-            this.Controls.Add(this.specialtiesListBox);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.levelTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.phoneNumberTextBox);
